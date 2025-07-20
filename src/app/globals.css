@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 43% 94%; /* #F5F1E9 */
+    --foreground: 20 42% 12%; /* #2A1810 */
+    --card: 0 0% 100%;
+    --card-foreground: 20 42% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 42% 12%;
+    --primary: 20 42% 12%; /* #2A1810 */
+    --primary-foreground: 40 43% 94%; /* #F5F1E9 */
+    --secondary: 38 38% 64%; /* #C5A880 */
+    --secondary-foreground: 20 42% 12%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 38 38% 64%; /* #C5A880 */
+    --accent-foreground: 20 42% 12%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 20 42% 12%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 20 42% 12%;
+    --foreground: 40 43% 94%;
+    --card: 20 42% 12%;
+    --card-foreground: 40 43% 94%;
+    --popover: 20 42% 12%;
+    --popover-foreground: 40 43% 94%;
+    --primary: 40 43% 94%;
+    --primary-foreground: 20 42% 12%;
+    --secondary: 38 38% 64%;
+    --secondary-foreground: 20 42% 12%;
+    --muted: 40 20% 15%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 38 38% 64%;
+    --accent-foreground: 20 42% 12%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 20% 20%;
+    --input: 40 20% 20%;
+    --ring: 40 43% 94%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .whatsapp-float {
+    @apply bg-[#25d366] text-white rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center text-3xl shadow-lg z-50 transition-all ease-in-out duration-300;
+  }
+  .whatsapp-float:hover {
+    @apply bg-[#128c7e] scale-110;
+  }
+
+  .scroll-to-top {
+    @apply w-12 h-12 md:w-14 md:h-14 bg-secondary/80 backdrop-blur-sm text-secondary-foreground border-2 border-primary/50 rounded-full flex items-center justify-center text-2xl shadow-lg z-50 transition-all ease-in-out duration-300 opacity-0 translate-y-5;
+  }
+  .scroll-to-top.visible {
+    @apply opacity-100 translate-y-0;
+  }
+  .scroll-to-top:hover {
+    @apply bg-primary text-primary-foreground -translate-y-1 scale-105;
+  }
+}
