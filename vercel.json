@@ -1,12 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "framework": "nextjs",
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "https://insecret.surajitbasak.com",
-      "permanent": true
-    }
-  ]
+  "framework": "nextjs"
 }
