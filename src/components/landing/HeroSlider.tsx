@@ -124,7 +124,7 @@ const HeroSlider = ({ settings }: HeroSliderProps) => {
                     <Button asChild variant="secondary" size="lg" className="px-10 py-6 font-body text-sm tracking-wider uppercase rounded-button">
                       <Link href="/shop">Explore Collection</Link>
                     </Button>
-                    <Button asChild variant="outline" size="lg" className="px-10 py-6 font-body text-sm tracking-wider uppercase rounded-button border-white/50 text-white hover:bg-white/10 hover:text-white">
+                    <Button asChild variant="outline" size="lg" className="px-10 py-6 font-body text-sm tracking-wider uppercase rounded-button border-white/50 text-primary-foreground hover:bg-white/10 hover:text-white">
                       <Link href="/about">Our Process</Link>
                     </Button>
                   </div>
