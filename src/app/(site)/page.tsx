@@ -8,10 +8,20 @@ import BestSellers from '@/components/landing/BestSellers';
 import SymphonyOfFlavors from '@/components/landing/SymphonyOfFlavors';
 import Newsletter from '@/components/landing/Newsletter';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
+import { type Testimonial, type Product } from '@/lib/types';
 
 export default async function Home() {
   const supabase = createSupabaseServerClient();
+      
   const { data: settings } = await supabase.from('site_settings').select('*');
+  const { data: testimonialsData } = await supabase.from('testimonials').select('*');
+  const { data: bestSellersData } = await supabase
+    .from('products')
+    .select('*')
+    .eq('is_best_seller', true)
+    .limit(4);
+  const { data: collectionsData } = await supabase.from('signature_collections').select('*').order('display_order');
+  const { data: flavorsData } = await supabase.from('symphony_of_flavors').select('*').order('display_order');
 
   const getSetting = (key: string) => settings?.find(s => s.key === key)?.value ?? '';
 
@@ -61,15 +71,20 @@ export default async function Home() {
     newsletter_description: getSetting('newsletter_description'),
   };
 
+  const testimonials = testimonialsData || [];
+  const bestSellers = bestSellersData || [];
+  const collections = collectionsData || [];
+  const flavors = flavorsData || [];
+
   return (
     <main>
       <HeroSlider settings={homeSettings} />
-      <SignatureCollections settings={homeSettings} />
+      <SignatureCollections settings={homeSettings} collections={collections} />
       <LegacyOfExcellence settings={homeSettings} />
       <LatestCreations settings={homeSettings} />
-      <Testimonials />
-      <BestSellers settings={homeSettings} />
-      <SymphonyOfFlavors settings={homeSettings} />
+      <Testimonials testimonials={testimonials} />
+      <BestSellers settings={homeSettings} bestSellers={bestSellers} />
+      <SymphonyOfFlavors settings={homeSettings} flavors={flavors} />
       <Newsletter settings={homeSettings} />
     </main>
   );

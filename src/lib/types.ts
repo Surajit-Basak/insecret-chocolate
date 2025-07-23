@@ -69,3 +69,22 @@ export type SiteSetting = {
     group: string | null;
     type: string | null;
 };
+
+export type SignatureCollection = {
+    id: string;
+    created_at: string;
+    title: string;
+    description: string | null;
+    image_url: string | null;
+    link_url: string | null;
+    display_order: number;
+};
+
+export type SymphonyOfFlavor = {
+    id: string;
+    created_at: string;
+    title: string;
+    description: string | null;
+    image_url: string | null;
+    display_order: number;
+};

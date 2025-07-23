@@ -144,6 +144,16 @@ export default async function AdminLayout({
                                 <Link href="/admin/pages/home">Home Page</Link>
                             </SidebarMenuSubButton>
                         </SidebarMenuSubItem>
+                         <SidebarMenuSubItem>
+                            <SidebarMenuSubButton href="/admin/pages/home/signature-collections" asChild>
+                                <Link href="/admin/pages/home/signature-collections" className="ml-4">Signature Collections</Link>
+                            </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                         <SidebarMenuSubItem>
+                            <SidebarMenuSubButton href="/admin/pages/home/symphony-of-flavors" asChild>
+                                <Link href="/admin/pages/home/symphony-of-flavors" className="ml-4">Symphony of Flavors</Link>
+                            </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
                         <SidebarMenuSubItem>
                             <SidebarMenuSubButton href="/admin/pages/about" asChild>
                                 <Link href="/admin/pages/about">About Page</Link>

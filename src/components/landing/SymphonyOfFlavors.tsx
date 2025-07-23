@@ -1,37 +1,16 @@
 import Image from 'next/image';
-
-const flavors = [
-  {
-    image: 'https://placehold.co/600x800.png',
-    title: 'Dark Chocolate',
-    description: 'Rich & Complex Notes',
-  },
-  {
-    image: 'https://placehold.co/600x800.png',
-    title: 'White Chocolate',
-    description: 'Smooth & Creamy',
-  },
-  {
-    image: 'https://placehold.co/600x800.png',
-    title: 'Milk Chocolate',
-    description: 'Perfectly Balanced',
-  },
-  {
-    image: 'https://placehold.co/600x800.png',
-    title: 'Signature Collection',
-    description: 'Curated Excellence',
-  },
-];
+import { type SymphonyOfFlavor } from '@/lib/types';
 
 type SymphonyOfFlavorsProps = {
   settings: {
     flavors_tagline: string;
     flavors_title: string;
     flavors_description: string;
-  }
+  };
+  flavors: SymphonyOfFlavor[];
 }
 
-const SymphonyOfFlavors = ({ settings }: SymphonyOfFlavorsProps) => {
+const SymphonyOfFlavors = ({ settings, flavors }: SymphonyOfFlavorsProps) => {
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-6">
@@ -44,7 +23,7 @@ const SymphonyOfFlavors = ({ settings }: SymphonyOfFlavorsProps) => {
           {flavors.map((flavor, index) => (
             <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg">
               <Image 
-                src={flavor.image} 
+                src={flavor.image_url ?? 'https://placehold.co/600x800.png'} 
                 alt={flavor.title} 
                 width={600}
                 height={800}

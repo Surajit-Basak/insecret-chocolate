@@ -2,34 +2,18 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
-
-const collections = [
-  {
-    image: 'https://placehold.co/800x600.png',
-    title: 'Luxury Bars',
-    description: 'Single-origin chocolate bars crafted with precision',
-  },
-  {
-    image: 'https://placehold.co/800x600.png',
-    title: 'Gift Boxes',
-    description: 'Curated selections for special occasions',
-  },
-  {
-    image: 'https://placehold.co/800x600.png',
-    title: 'Artisanal Bonbons',
-    description: 'Handcrafted pieces with unique flavors',
-  },
-];
+import { type SignatureCollection } from '@/lib/types';
 
 type SignatureCollectionsProps = {
   settings: {
     collections_tagline: string;
     collections_title: string;
     collections_description: string;
-  }
+  };
+  collections: SignatureCollection[];
 }
 
-const SignatureCollections = ({ settings }: SignatureCollectionsProps) => {
+const SignatureCollections = ({ settings, collections }: SignatureCollectionsProps) => {
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -44,7 +28,7 @@ const SignatureCollections = ({ settings }: SignatureCollectionsProps) => {
               <CardHeader className="p-0">
                 <div className="aspect-[4/3] relative">
                   <Image 
-                    src={collection.image} 
+                    src={collection.image_url ?? 'https://placehold.co/800x600.png'} 
                     alt={collection.title} 
                     width={800}
                     height={600}
@@ -58,7 +42,7 @@ const SignatureCollections = ({ settings }: SignatureCollectionsProps) => {
               </CardContent>
               <CardFooter className="p-6 pt-0">
                 <Button asChild variant="secondary" className="font-body rounded-button">
-                  <Link href="/shop">Shop Now</Link>
+                  <Link href={collection.link_url ?? '/shop'}>Shop Now</Link>
                 </Button>
               </CardFooter>
             </Card>

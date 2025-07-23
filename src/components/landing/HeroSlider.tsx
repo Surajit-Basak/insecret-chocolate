@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useCallback } from 'react';
@@ -109,7 +110,7 @@ const HeroSlider = ({ settings }: HeroSliderProps) => {
             </div>
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30"></div>
             <div className="container mx-auto px-6 absolute inset-0 h-full flex items-center">
-              <div className="max-w-2xl text-white">
+              <div className="max-w-2xl text-white" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                 <div className="mb-8">
                   <span className="inline-block font-body text-accent tracking-widest uppercase text-sm mb-4">
                     {slide.tagline}
@@ -121,10 +122,10 @@ const HeroSlider = ({ settings }: HeroSliderProps) => {
                     {slide.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button asChild variant="secondary" size="lg" className="px-10 py-6 font-body text-sm tracking-wider uppercase rounded-button">
+                    <Button asChild variant="secondary" size="lg" className="px-10 py-6 font-body text-sm tracking-wider uppercase rounded-button" style={{ textShadow: 'none' }}>
                       <Link href="/shop">Explore Collection</Link>
                     </Button>
-                    <Button asChild variant="outline" size="lg" className="px-10 py-6 font-body text-sm tracking-wider uppercase rounded-button border-white/50 text-white hover:bg-white/10 hover:text-white">
+                    <Button asChild variant="outline" size="lg" className="px-10 py-6 font-body text-sm tracking-wider uppercase rounded-button border-white/50 text-primary hover:bg-white/10 hover:text-white" style={{ textShadow: 'none' }}>
                       <Link href="/about">Our Process</Link>
                     </Button>
                   </div>
@@ -147,13 +148,13 @@ const HeroSlider = ({ settings }: HeroSliderProps) => {
       </div>
 
      {slides.length > 1 && (
-        <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-3 z-10">
+        <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-4 z-10">
             {slides.map((_, index) => (
             <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 aria-label={`Go to slide ${index + 1}`}
-                className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
+                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
                 index === currentSlide ? 'bg-white' : 'bg-white/30 hover:bg-white/50'
                 }`}
             />
